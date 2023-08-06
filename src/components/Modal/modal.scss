@@ -1,0 +1,28 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(30, 30, 30, .85);
+  backdrop-filter: blur(5px);
+  z-index: 20;
+}
+
+.modal-image-wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 70rem;
+  height: 40rem;
+  margin-top: calc(-40rem / 2);
+  margin-left: calc(-70rem / 2);
+  z-index: 21;
+}
+
+.modal-image {
+  border-radius: .625rem;
+  box-shadow: 0 0 4rem #1e1e1e;
+}

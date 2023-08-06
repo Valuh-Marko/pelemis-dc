@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$background: #f2f2f2;
+$accent-green: #DAFDA3;
+$accent-blue: #9FC5FD;
+$text: #1E1E1E;
+
+@mixin breakpoint($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+}
+
+html {
+  color: $text;
+  background-color: $background;
+  font-size: 16px;
+  font-family: 'Outfit', sans-serif;
+}
+
+body, #root {
+  height: 100vh;
+  background-color: $text;
+  position: relative;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.main-page-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $background;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $text;
+  transform-origin: bottom;
+  z-index: 10;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $text;
+  transform-origin: top;
+  z-index: 10;
+}
+
+
+/********************************
+******** LOADING PAGE ***********
+********************************/
+.loading-page-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $background;
+  z-index: 10;
+}
+
+.loading-page-logo {
+  width: 12rem;
+  height: 12rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.loading-page-loading {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  height: 2rem;
+  overflow-y: hidden;
+}
+
+.loading-page-loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  position: relative;
+  transform: translateY(100rem);
+}
+
+.loading-page-percentage,
+.loading-page-icon {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/********************************
+******* NAVIGATION TOGGLE *******
+********************************/
+.navigation-toggle {
+  z-index: 3;
+  height: 5rem;
+  width: 5rem;
+  background-color: $accent-blue;
+  position: fixed;
+  left: 50%;
+  bottom: 3rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+  cursor: pointer;
+  transition: transform, background-color;
+  transition-timing-function: ease;
+  transition-duration: .4s;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.04);
+
+    .menu-icon {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+  }
+
+  &:active {
+    transform: translateX(-50%) scale(0.96);
+  }
+}
+
+.menu-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(0.9);
+  font-size: 1.75rem;
+  color: $text;
+  opacity: 0;
+  transition: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: .4s;
+
+  &.close {
+    opacity: 1;
+  }
+}
+/********************************
+********* NAVIGATION ************
+********************************/
+
+.nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+  padding: 1.5rem 1.5rem 10rem;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  gap: 1.5rem;
+  transform-origin: bottom;
+}
+
+.nav-item {
+  flex: 1;
+}
+
+.nav-link {
+  height: 100%;
+  gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.nav-link-image {
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1.8/1;
+  border-radius: .5rem;
+}
+
+a {
+  color: $background;
+} 
