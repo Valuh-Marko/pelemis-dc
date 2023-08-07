@@ -155,6 +155,11 @@ img {
   transition-timing-function: ease;
   transition-duration: .4s;
 
+  @include breakpoint(768px) {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
   &:hover {
     transform: translateX(-50%) scale(1.04);
 
@@ -207,10 +212,18 @@ img {
   height: 100%;
   gap: 1.5rem;
   transform-origin: bottom;
+
+  @include breakpoint(768px) {
+    flex-wrap: wrap;
+  }
 }
 
 .nav-item {
   flex: 1;
+
+  @include breakpoint(768px) {
+    min-width: calc(50% - .75rem);
+  }
 }
 
 .nav-link {

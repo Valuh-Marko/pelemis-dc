@@ -18,8 +18,14 @@ const Modal = ({ imageData, setModalOpen }) => {
       </motion.div>
       <motion.div className="modal-image-wrapper"
         layoutId={`image-${imageData.imageId}`}
+        transition={{ duration: .2 }}
       >
-        <img src={imageData.image} className="modal-image" />
+        <img src={imageData.image} className="modal-image"
+          onClick={(e) => {
+            e.stopPropagation();
+            setModalOpen(false)
+          }}
+        />
       </motion.div>
     </>,
     document.getElementById('portal')

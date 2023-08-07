@@ -11,6 +11,8 @@ import image9 from "../assets/image9.jpg"
 import image10 from "../assets/image10.jpg"
 import image11 from "../assets/image11.jpg"
 import image12 from "../assets/image12.jpg"
+import belgrade from "../assets/belgrade.jpg"
+import contactBg from "../assets/contactBg.jpg"
 
 const GeneralContext = createContext();
 function Provider({ children }) {
@@ -24,7 +26,10 @@ function Provider({ children }) {
 
     imageArray: [
       image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12
-    ]
+    ],
+
+    locationImage: belgrade,
+    contactImage: contactBg,
   }
 
   return <GeneralContext.Provider value={valueToShare}>

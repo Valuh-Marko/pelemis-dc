@@ -25,8 +25,8 @@ const HomePage = () => {
           <h1 className="home-page-title">Pelemiš Dental Care</h1>
         </div>
       </div>
-      <div className="home-page-bottom">
-        <img src={imageArray[0]} alt="alt" className='home-page-image' />
+      <div className="home-page-bottom" style={{ backgroundImage: `url(${imageArray[0]})` }}>
+        {/* <img src={imageArray[0]} alt="alt" className='home-page-image' /> */}
       </div>
     </motion.div>
   )

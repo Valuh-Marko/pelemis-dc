@@ -1,11 +1,14 @@
+@import '../../main.scss';
+
 .home-page-top {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  flex: 1;
 }
 
 .home-page-bottom {
+  background-position: center;
+  background-size: cover;
   flex: 1;
 }
 
@@ -15,10 +18,20 @@
   align-items: center;
   padding: 3rem 2rem 1.5rem;
   border-bottom: 1px solid #1e1e1e;
+
+  @include breakpoint(768px) {
+    gap: 1rem;
+    width: 100%;
+
+  }
 }
 
 .home-page-logo {
   font-size: 1.5rem;
+
+  @include breakpoint(768px) {
+    font-size: 1rem;
+  }
 }
 
 .home-page-language {
@@ -29,6 +42,13 @@
   align-self: flex-start;
   z-index: 1;
   display: flex;
+}
+
+.home-page-mail,
+.home-page-phone {
+  @include breakpoint(768px) {
+    display: none;
+  }
 }
 
 .home-page-title {
@@ -42,6 +62,17 @@
   padding-right: 12rem;
   animation: moveTextHorizontal 20s linear infinite;
   animation-delay: 1s;
+
+  @include breakpoint(768px) {
+    font-size: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+.home-page-image {
+  object-fit: none;
+  object-position: 50% -22rem;
+  object-fit: contain;
 }
 
 @keyframes moveTextHorizontal {
