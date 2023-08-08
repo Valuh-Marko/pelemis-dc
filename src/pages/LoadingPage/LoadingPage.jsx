@@ -4,9 +4,12 @@ import logo from '../../assets/logo.png';
 import { motion, cubicBezier } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Transition from '../../transitions/transition';
+import { useContext } from 'react';
+import RoutesContext from '../../context/RoutesContext';
 
 const LoadingPage = () => {
   const navigate = useNavigate();
+  const { home } = useContext(RoutesContext)
 
   const fillArray = () => {
     let array = [];
@@ -22,7 +25,7 @@ const LoadingPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate('/home')
+      navigate(home);
     }, 4000);
   }, [])
 
