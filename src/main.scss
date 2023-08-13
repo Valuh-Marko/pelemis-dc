@@ -26,14 +26,22 @@ $text: #1E1E1E;
 html {
   color: $text;
   background-color: $background;
-  font-size: 16px;
+  font-size: 0.83vw;
   font-family: 'Outfit', sans-serif;
+
+  @include breakpoint(768px) {
+    font-size: 4.3vw;
+  }
 }
 
 body, #root {
-  height: 100vh;
+  height: 100vmin;
   background-color: $text;
   position: relative;
+
+  @include breakpoint(768px) {
+    height: 100vmax;
+  }
 }
 
 img {
@@ -54,6 +62,7 @@ img {
 }
 
 .page-wrapper {
+  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -214,7 +223,8 @@ img {
   transform-origin: bottom;
 
   @include breakpoint(768px) {
-    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-x: scroll;
   }
 }
 
@@ -222,7 +232,7 @@ img {
   flex: 1;
 
   @include breakpoint(768px) {
-    min-width: calc(50% - .75rem);
+    min-width: calc(80% - .75rem);
   }
 }
 
@@ -239,9 +249,32 @@ img {
   height: auto;
   width: 100%;
   aspect-ratio: 1.8/1;
-  border-radius: .5rem;
 }
 
 a {
   color: $background;
 } 
+
+.nav-scroll-indicator {
+  position: absolute;
+  bottom: 8rem;
+  display: none;
+  color: $background;
+  margin-left: -1.5rem;
+  font-size: .5rem;
+  text-transform: lowercase;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: 100%;
+  text-align: center;
+  transform-origin: center;
+
+  span {
+    margin-top: -0.0625rem;
+  }
+
+  @include breakpoint(768px) {
+    display: flex;
+  }
+}

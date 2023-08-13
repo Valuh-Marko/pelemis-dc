@@ -11,7 +11,7 @@ function Provider({ children }) {
     loading: `${base}/loading`,
     home: `${base}/home`,
     gallery: `${base}/gallery`,
-    locaion: `${base}/locaion`,
+    location: `${base}/location`,
     contact: `${base}/contact`,
   }
 

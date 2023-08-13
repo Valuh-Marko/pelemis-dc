@@ -9,10 +9,16 @@ import contact from "../../assets/contact.jpg"
 import location from "../../assets/location.jpg"
 import { motion } from 'framer-motion'
 import RoutesContext from '../../context/RoutesContext'
+import { BsArrowLeftRight } from 'react-icons/bs'
 
 const variants = {
   open: { y: 0, scale: 1 },
   closed: { y: '70%', scale: .9 }
+}
+
+const variantsTwo = {
+  open: { opacity: 1, scale: 1 },
+  closed: { opacity: 0, scale: .9 }
 }
 
 const Navigation = () => {
@@ -50,6 +56,13 @@ const Navigation = () => {
             <img src={contact} alt="nav-link-image" className="nav-link-image" />
           </Link>
         </div>
+      </motion.div>
+      <motion.div className="nav-scroll-indicator"
+        animate={toggleNav ? 'open' : 'closed'}
+        transition={{ duration: .82, ease: [0.22, 1, 0.36, 1], delay: .3 }}
+        variants={variantsTwo}
+      >
+        <span>Scroll for more</span> <BsArrowLeftRight />
       </motion.div>
     </div>
   )

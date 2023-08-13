@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import Transition from '../../transitions/transition';
 import { useContext } from 'react';
 import RoutesContext from '../../context/RoutesContext';
+import GeneralContext from '../../context/GeneralContext';
 
 const LoadingPage = () => {
   const navigate = useNavigate();
-  const { home } = useContext(RoutesContext)
+  const { home } = useContext(RoutesContext);
+  const { imageArray } = useContext(GeneralContext);
 
   const fillArray = () => {
     let array = [];
@@ -31,6 +33,11 @@ const LoadingPage = () => {
 
   return (
     <div className='loading-page-wrapper'>
+      <div style={{ position: 'fixed', width: 0, height: 0 }} className="image-preload-wrapper">
+        {imageArray.map((image, index) => (
+          <img style={{ width: 0, height: 0, visibility: 'hidden' }} src={image} key={index} />
+        ))}
+      </div>
       <motion.img className='loading-page-logo' src={logo} alt="logo"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
