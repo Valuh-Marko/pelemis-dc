@@ -5,14 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/pelemis-dc/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
-    <script type="module" crossorigin src="/pelemis-dc/assets/index-5cb4ec2c.js"></script>
-    <link rel="stylesheet" href="/pelemis-dc/assets/index-a15610b6.css">
+    <script type="module" crossorigin src="/pelemis-dc/assets/index-5c126def.js"></script>
+    <link rel="stylesheet" href="/pelemis-dc/assets/index-9954d6bd.css">
   </head>
   <body>
     <div id="root"></div>
     <div id="portal"></div>
     
     <script type="text/javascript">
+      const appHeight = () => {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+      }
+      window.addEventListener('resize', appHeight);
+      appHeight()
+
       (function (l) {
         if (l.search[1] === "/") {
           var decoded = l.search
