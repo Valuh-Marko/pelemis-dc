@@ -1,30 +1,24 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './home.scss';
 import Transition from '../../transitions/transition';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import GeneralContext from '../../context/GeneralContext';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import { useInterval } from '../../hooks/useInterval'
 
 const HomePage = () => {
   const { toggleNav, imageArray } = useContext(GeneralContext);
+  const interval = useRef();
   const [random, setRandom] = useState(0);
 
-  const randomIntegerBetween = (minNum, maxNum) => {
-    if (minNum > maxNum) {
-      [minNum, maxNum] = [maxNum, minNum]; // Swap values if minNum is greater
+  useInterval(() => {
+    setRandom(random + 1);
+
+    if (random >= 5) {
+      setRandom(0)
     }
-    return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-  }
-
-  useEffect(() => {
-    const setRandomInterval = setInterval(() => {
-      setRandom(() => randomIntegerBetween(0, 6));
-    }, 4000);
-
-    return () => window.clearInterval(setRandomInterval);
-  }, [])
+  }, 3500)
 
   return (
     <motion.div className='page-wrapper'

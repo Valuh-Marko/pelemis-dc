@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import GeneralContext from '../../context/GeneralContext'
 // Image Imports
 import home from "../../assets/home.jpg"
@@ -33,25 +33,25 @@ const Navigation = () => {
         variants={variants}
       >
         <div className="nav-item">
-          <Link onClick={changeToggleNav} className="nav-link" to={routes.home}>
+          <Link as={NavLink} onClick={changeToggleNav} className="nav-link" to={routes.home}>
             <h3 className="nav-link-title">home</h3>
             <img src={home} alt="nav-link-image" className="nav-link-image" />
           </Link>
         </div>
         <div className="nav-item">
-          <Link onClick={changeToggleNav} className="nav-link" to={routes.gallery}>
+          <Link as={NavLink} onClick={changeToggleNav} className="nav-link" to={routes.gallery}>
             <h3 className="nav-link-title">gallery</h3>
             <img src={gallery} alt="nav-link-image" className="nav-link-image" />
           </Link>
         </div>
         <div className="nav-item">
-          <Link onClick={changeToggleNav} className="nav-link" to={routes.location}>
+          <Link as={NavLink} onClick={changeToggleNav} className="nav-link" to={routes.location}>
             <h3 className="nav-link-title">location</h3>
             <img src={location} alt="nav-link-image" className="nav-link-image" />
           </Link>
         </div>
         <div className="nav-item">
-          <Link onClick={changeToggleNav} className="nav-link" to={routes.contact}>
+          <Link as={NavLink} onClick={changeToggleNav} className="nav-link" to={routes.contact}>
             <h3 className="nav-link-title">contact</h3>
             <img src={contact} alt="nav-link-image" className="nav-link-image" />
           </Link>
