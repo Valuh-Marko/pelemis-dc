@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import Transition from '../../transitions/transition';
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useContext } from 'react';
 import GeneralContext from '../../context/GeneralContext';
 import './gallery.scss';
@@ -15,8 +15,6 @@ const GalleryPage = () => {
   const { toggleNav, imageArray } = useContext(GeneralContext);
   const gallery = useRef(null);
   const indicator = useRef(null);
-  const { scrollXProgress } = useScroll({ container: gallery });
-  const positionProgress = useTransform(scrollXProgress, [0, 1], ['100% 50%', '0% 50%']);
 
   const colisionHandler = (index) => {
     if (index === imageIndex) {
@@ -86,8 +84,8 @@ const GalleryPage = () => {
         >
           {imageArray.map((image, index) => (
             <motion.img src={image} key={index}
+              loading='lazy'
               className="gallery-image"
-              style={{ objectPosition: positionProgress }}
               layoutId={`image-${index}`}
               onClick={() => openModal(image, index)}
             />

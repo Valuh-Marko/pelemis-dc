@@ -4,15 +4,15 @@ import { createContext } from "react";
 const RoutesContext = createContext();
 
 function Provider({ children }) {
-  const base = "/pelemis-dc";
+  const base = "";
 
   const routes = {
     base,
     loading: `${base}/loading`,
     home: `${base}/home`,
     gallery: `${base}/gallery`,
-    location: `${base}/location`,
     contact: `${base}/contact`,
+    team: `${base}/team`,
   }
 
   return <RoutesContext.Provider value={routes}>

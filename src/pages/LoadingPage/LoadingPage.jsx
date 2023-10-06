@@ -26,6 +26,11 @@ const LoadingPage = () => {
   }
 
   useEffect(() => {
+    imageArray.forEach(url => {
+      const img = new Image();
+      img.src = url;
+    });
+
     setTimeout(() => {
       navigate(home);
     }, 4000);
@@ -34,9 +39,7 @@ const LoadingPage = () => {
   return (
     <div className='loading-page-wrapper'>
       <div style={{ position: 'fixed', width: 0, height: 0 }} className="image-preload-wrapper">
-        {imageArray.map((image, index) => (
-          <img style={{ width: 0, height: 0, visibility: 'hidden' }} src={image} key={index} />
-        ))}
+
       </div>
       <motion.img className='loading-page-logo' src={logo} alt="logo"
         initial={{ opacity: 0 }}
@@ -53,8 +56,8 @@ const LoadingPage = () => {
             duration: 3.32
           }}
         >
-          {fillArray().map((number) => {
-            return <div className="loading-page-percentage">{number}</div>
+          {fillArray().map((number, index) => {
+            return <div key={index} className="loading-page-percentage">{number}</div>
           })}
         </motion.div>
         <div className="loading-page-icon">%</div>

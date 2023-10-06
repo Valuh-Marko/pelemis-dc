@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --app-height: 100%;
+}
+
 $background: #f2f2f2;
 $accent-green: #DAFDA3;
 $accent-blue: #9FC5FD;
@@ -40,7 +44,7 @@ body, #root {
   position: relative;
 
   @include breakpoint(768px) {
-    height: 100vmax;
+    height: var(--app-height);
   }
 }
 
@@ -69,6 +73,10 @@ img {
   background-color: $background;
   overflow: hidden;
   z-index: 2;
+
+  @include breakpoint(768px) {
+    height: var(--app-height);
+  }
 }
 
 .slide-in {
@@ -223,8 +231,7 @@ img {
   transform-origin: bottom;
 
   @include breakpoint(768px) {
-    overflow: hidden;
-    overflow-x: scroll;
+    flex-wrap: wrap;
   }
 }
 
@@ -232,7 +239,7 @@ img {
   flex: 1;
 
   @include breakpoint(768px) {
-    min-width: calc(80% - .75rem);
+    min-width: calc(50% - .75rem);
   }
 }
 
@@ -249,6 +256,10 @@ img {
   height: auto;
   width: 100%;
   aspect-ratio: 1.8/1;
+
+  @include breakpoint(768px) {
+    aspect-ratio: 2.8 / 1;
+  }
 }
 
 a {
