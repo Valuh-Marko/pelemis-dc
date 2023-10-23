@@ -84,7 +84,6 @@ const GalleryPage = () => {
         >
           {imageArray.map((image, index) => (
             <motion.img src={image} key={index}
-              loading='lazy'
               className="gallery-image"
               layoutId={`image-${index}`}
               onClick={() => openModal(image, index)}

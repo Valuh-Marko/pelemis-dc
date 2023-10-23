@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './loadingPage.scss';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.webp';
 import { motion, cubicBezier } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Transition from '../../transitions/transition';
@@ -39,7 +39,11 @@ const LoadingPage = () => {
   return (
     <div className='loading-page-wrapper'>
       <div style={{ position: 'fixed', width: 0, height: 0 }} className="image-preload-wrapper">
-
+        {imageArray.map((image, index) => (
+          <img src={image} key={index}
+            className="preload-image"
+          />
+        ))}
       </div>
       <motion.img className='loading-page-logo' src={logo} alt="logo"
         initial={{ opacity: 0 }}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import GeneralContext from '../../context/GeneralContext';
 import "./contact.scss";
 import TranslationContext from '../../context/TranslationContext';
-import mapa from '../../assets/mapa.png'
+import mapa from '../../assets/mapa.webp'
 
 const ContactPage = () => {
   const { toggleNav } = useContext(GeneralContext);
